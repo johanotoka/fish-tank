@@ -483,9 +483,13 @@ function drawHead() {
     drawEye();
 }
 
+//weird things happening with eyes
 function drawEye() {
-
-}
+ //   gTranslate(0, 0, 0);
+ //   gScale(0.25, 0.25, 0.25);     //it is chnaging the scale for entire body instead of sphere
+ //   setColor(vec4(0, 0, 0, 0.0));
+ //   drawSphere();
+ }
 
 function drawBody() {
     gPush();
@@ -495,13 +499,28 @@ function drawBody() {
     setColor(vec4(0.6, 0.0, 0.0, 1.0));
     drawCone();
     drawTail();
+    drawTail2(); 
     gPop();
 }
 
 function drawTail() {
-    gTranslate(0.0, 0.0, 1.0);
-    gRotate(60, 0, 0, 1);
-    gScale(0.25, 0.25, 0.60);
+    gTranslate(-0.11, 0.60, 0.75);
+    gRotate(-95, 1, 1, 1);
+    gScale(0.10, 0.12, 1.40);
     setColor(vec4(0.6, 0.0, 0.0, 1.0));
     drawCone();
+    gPop();
 }
+
+function drawTail2() {
+    gScale(0.1, 1.3, 0.4);
+    gTranslate(0, -0.4, -12);
+    gRotate(97, 1, 0, 0);
+    setColor(vec4(0.6, 0.0, 0.0, 1.0));
+    drawCone();
+    gPop();
+}
+
+
+
+
