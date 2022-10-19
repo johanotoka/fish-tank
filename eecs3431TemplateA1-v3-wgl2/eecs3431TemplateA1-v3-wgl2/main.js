@@ -494,15 +494,14 @@ function drawBody() {
     gScale(1.0, 1.0, 4.0);
     setColor(vec4(0.6, 0.0, 0.0, 1.0));
     drawCone();
-    // drawTail();
+    drawTail();
     gPop();
 }
 
 function drawTail() {
-    gTranslate(0.0, 0.5, 0.70);
-    gScale(0.3, 0.3, 0.5);
-    gRotate(90, 1, 0, 0);
-
+    gTranslate(0.0, 0.0, 1.0);
+    gRotate(60, 0, 0, 1);
+    gScale(0.25, 0.25, 0.60);
     setColor(vec4(0.6, 0.0, 0.0, 1.0));
     drawCone();
 }
