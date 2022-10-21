@@ -293,20 +293,22 @@ function render() {
     gPush();
     {
         // Strand 1
+        gPush();
         gTranslate(-0.5, -3.25, -1);
         drawStrand();
+        gPop();
 
         // // Strand 2
-        // gPush();
-        // gTranslate(0.0, -2.75, -1);
-        // drawStrand();
-        // gPop();
+        gPush();
+        gTranslate(0.0, -2.75, -1);
+        drawStrand();
+        gPop();
 
         // // Strand 3
-        // gPush();
-        // gTranslate(0.5, -3.25, -1);
-        // drawStrand();
-        // gPop();
+        gPush();
+        gTranslate(0.5, -3.25, -1);
+        drawStrand();
+        gPop();
     }
     gPop();
 
@@ -436,20 +438,6 @@ function drawSeaweed() {
     drawSphere();
 }
 
-// function drawStrand() {
-//     gPush();
-
-//     gScale(0.1, 0.25, 0.10);
-//     drawSeaweed();
-//     for (var i = 0; i < 9; i++) {
-//         gTranslate(0, 2, 0);
-//         drawSeaweed();
-//     }
-
-//     gPop();
-// }
-
-
 function drawStrand() {
     gPush();
 
@@ -459,7 +447,7 @@ function drawStrand() {
     gPop();
 
     gTranslate(0, 0.25, 0);
-    gRotate(10 * Math.cos(TIME), 0, 0, 1);
+    gRotate(15 * Math.cos(TIME), 0, 0, 1);
     gTranslate(0, 0.25, 0);
 
     gPush();
@@ -467,16 +455,81 @@ function drawStrand() {
     drawSeaweed();
     gPop();
 
+    gTranslate(0, 0.25, 0);
+    gRotate(15 * Math.cos(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
 
-    // gTranslate(0, 2, 0);
-    // gRotate(TIME, 0, 0, 1);
-    // drawSeaweed();
-    // gTranslate(0, 2, 0);
-    // gRotate(45, 0, 0, 1);
-    // drawSeaweed();
-    // gRotate(45, 0, 0, 1);
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
 
+    gTranslate(0, 0.25, 0);
+    gRotate(15 * Math.sin(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
 
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+    gTranslate(0, 0.25, 0);
+    gRotate(-15 * Math.cos(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
+
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+    gTranslate(0, 0.25, 0);
+    gRotate(-15 * Math.cos(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
+
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+    gTranslate(0, 0.25, 0);
+    gRotate(15 * Math.cos(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
+
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+    gTranslate(0, 0.25, 0);
+    gRotate(15 * Math.cos(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
+
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+    gTranslate(0, 0.25, 0);
+    gRotate(15 * Math.sin(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
+
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+    gTranslate(0, 0.25, 0);
+    gRotate(-15 * Math.cos(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
+
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+    gTranslate(0, 0.25, 0);
+    gRotate(-15 * Math.cos(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
 
     gPop();
 }
