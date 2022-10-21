@@ -320,12 +320,7 @@ function render() {
         // gScale(0.5, 0.5, 0.5);
 
         drawFish();
-    }
-    gPop();
-
-    gPush();
-    {
-        // drawHuman();
+        drawHuman();
     }
     gPop();
 
@@ -545,16 +540,19 @@ function drawHuman() {
 }
 
 function draw_Human_Head() {
-    gPush();
-    gScale(2, 3, 3);
-    gTranslate(0, 0, 0);
-    setColor(vec4(0, 0, 0, 1.0));
-    drawSphere();
-    gPop();
+    
+    gScale(0.3, 0.3, 0.3);
+    gTranslate(11.4, 4, -5);
+    setColor(vec4(0.6, 0.2, 0.8, 1.0));
+    drawSphere();     
 }
 
 function draw_Human_body() {
-    //work in progress
+    gScale(2, 3, 0.3);
+    gTranslate(0, -1.32, 0);
+    gRotate(-15, 0, 1, 0);
+    setColor(vec4(0.4, 0.15, 0.6, 1));
+    drawCube(); 
 }
 function draw_Left_Leg() {
     //work in progress
@@ -566,14 +564,14 @@ function draw_Right_Leg() {
 function drawFish() {
     gPush();
     gRotate(-30 * TIME, 0, 1, 0);
-    gTranslate(0, Math.cos(TIME), 0);
+    gTranslate(0, 0.8 * Math.cos(TIME), 0);
     drawHead();
     drawBody();
     gPop();
 }
 
 function drawHead() {
-    gTranslate(0, -2, 2);
+    gTranslate(0, -2.5, 2);
     gScale(0.5, 0.5, 0.5);
     gRotate(-90, 0, 1, 0);
     setColor(vec4(0.6, 0.6, 0.6, 1.0));
