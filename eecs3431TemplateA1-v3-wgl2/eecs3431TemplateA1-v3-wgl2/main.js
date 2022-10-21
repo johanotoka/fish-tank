@@ -324,6 +324,12 @@ function render() {
     }
     gPop();
 
+    gPush();
+    {
+        drawHuman();
+    }
+    gPop();
+
     // gTranslate(-4, 0, 0);
     // gPush();
     // {
@@ -467,12 +473,44 @@ function drawStrand() {
 //     gPop();
 // }
 
-function drawFish() {
+
+
+function drawHuman() {
     gPush();
-    drawHead();
-    drawBody();
+    draw_Human_Head();
+    draw_Human_body();
+    draw_Left_Leg();
+    draw_Right_Leg();
     gPop();
-}
+    }
+
+    function draw_Human_Head(){
+        gPush();
+        gScale(2, 3, 3);
+        gTranslate(0, 0, 0);
+        setColor(vec4(0, 0, 0, 1.0));
+        drawSphere();
+        gPop();
+    }
+
+    function draw_Human_body(){
+        //work in progress
+    }
+    function draw_Left_Leg()
+    {
+        //work in progress
+    }
+    function draw_Right_Leg()
+    {
+        //work in progress
+    }
+
+function drawFish() {
+        gPush();
+        drawHead();
+        drawBody();
+        gPop();
+    }
 
 function drawHead() {
     gTranslate(0, -3, 2);
@@ -484,12 +522,11 @@ function drawHead() {
     drawRightEye();
 }
 
-//THIS ONE
 function drawLeftEye() {
     gPush();
     gTranslate(-0.5, 0.4, 0);
     gScale(0.15, 0.15, 0.15);    
-    setColor(vec4(255, 255, 255, 1.0));
+    setColor(vec4(1, 1, 1, 1.0));
     drawSphere();
     drawLeftCornea();
     gPop();
@@ -498,7 +535,7 @@ function drawLeftEye() {
     gPush();
     gTranslate(0.48, 0.4, 0);
     gScale(0.15, 0.15, 0.15);    
-    setColor(vec4(255, 255, 255, 1.0));
+    setColor(vec4(1, 1, 1, 1.0));
     drawSphere();
     drawRightCornea();
     gPop();
@@ -519,7 +556,6 @@ function drawLeftEye() {
     gScale(0.7, 0.7, 0.7);    
     setColor(vec4(0, 0, 0, 1.0));
     drawSphere();
-    drawRightCornea
     gPop();
    }
 
@@ -536,6 +572,7 @@ function drawBody() {
 }
 
 function drawTail() {
+   // gPush();
     gTranslate(-0.11, 0.60, 0.75);
     gRotate(-95, 1, 1, 1);
     gScale(0.10, 0.12, 1.40);
@@ -545,6 +582,7 @@ function drawTail() {
 }
 
 function drawTail2() {
+    gPush();
     gScale(0.1, 1.3, 0.4);
     gTranslate(0, -0.4, -12);
     gRotate(97, 1, 0, 0);
