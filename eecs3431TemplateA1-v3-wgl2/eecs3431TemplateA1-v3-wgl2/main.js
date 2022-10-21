@@ -480,16 +480,48 @@ function drawHead() {
     gRotate(-90, 0, 1, 0);
     setColor(vec4(0.6, 0.6, 0.6, 1.0));
     drawCone();
-    drawEye();
+    drawLeftEye();
+    drawRightEye();
 }
 
-//weird things happening with eyes
-function drawEye() {
- //   gTranslate(0, 0, 0);
- //   gScale(0.25, 0.25, 0.25);     //it is chnaging the scale for entire body instead of sphere
- //   setColor(vec4(0, 0, 0, 0.0));
- //   drawSphere();
+//THIS ONE
+function drawLeftEye() {
+    gPush();
+    gTranslate(-0.5, 0.4, 0);
+    gScale(0.15, 0.15, 0.15);    
+    setColor(vec4(255, 255, 255, 1.0));
+    drawSphere();
+    drawLeftCornea();
+    gPop();
  }
+ function drawRightEye() {
+    gPush();
+    gTranslate(0.48, 0.4, 0);
+    gScale(0.15, 0.15, 0.15);    
+    setColor(vec4(255, 255, 255, 1.0));
+    drawSphere();
+    drawRightCornea();
+    gPop();
+ }
+
+ function drawLeftCornea() {
+      gPush();
+      gTranslate(0, 0.04, 0.70);
+      gScale(0.7, 0.7, 0.7);    
+      setColor(vec4(0, 0, 0, 1.0));
+      drawSphere();
+      gPop();
+   }
+
+   function drawRightCornea() {
+    gPush();
+    gTranslate(0.0, 0.04, 0.70);
+    gScale(0.7, 0.7, 0.7);    
+    setColor(vec4(0, 0, 0, 1.0));
+    drawSphere();
+    drawRightCornea
+    gPop();
+   }
 
 function drawBody() {
     gPush();
