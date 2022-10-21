@@ -566,14 +566,14 @@ function draw_Right_Leg() {
 function drawFish() {
     gPush();
     gRotate(-30 * TIME, 0, 1, 0);
-    gTranslate(0, Math.cos(TIME), 0);
+    gTranslate(0, 0.8 * Math.cos(TIME), 0);
     drawHead();
     drawBody();
     gPop();
 }
 
 function drawHead() {
-    gTranslate(0, -2, 2);
+    gTranslate(0, -2.5, 2);
     gScale(0.5, 0.5, 0.5);
     gRotate(-90, 0, 1, 0);
     setColor(vec4(0.6, 0.6, 0.6, 1.0));
