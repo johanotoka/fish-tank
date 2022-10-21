@@ -260,7 +260,6 @@ function render() {
     // Shift the origin to the center of the screen to mach the the ground
     gPush();
     gTranslate(0.0, -9.0, 0.0);
-    // gPush();
     {
         // Draw the ground
         gScale(10.0, 5.0, 10.0);
@@ -294,22 +293,20 @@ function render() {
     gPush();
     {
         // Strand 1
-        gPush();
         gTranslate(-0.5, -3.25, -1);
         drawStrand();
-        gPop();
 
-        // Strand 2
-        gPush();
-        gTranslate(0.0, -2.75, -1);
-        drawStrand();
-        gPop();
+        // // Strand 2
+        // gPush();
+        // gTranslate(0.0, -2.75, -1);
+        // drawStrand();
+        // gPop();
 
-        // Strand 3
-        gPush();
-        gTranslate(0.5, -3.25, -1);
-        drawStrand();
-        gPop();
+        // // Strand 3
+        // gPush();
+        // gTranslate(0.5, -3.25, -1);
+        // drawStrand();
+        // gPop();
     }
     gPop();
 
@@ -326,7 +323,7 @@ function render() {
 
     gPush();
     {
-        drawHuman();
+        // drawHuman();
     }
     gPop();
 
@@ -439,40 +436,50 @@ function drawSeaweed() {
     drawSphere();
 }
 
-function drawStrand() {
-    gPush();
-
-    gScale(0.1, 0.25, 0.10);
-    drawSeaweed();
-    for (var i = 0; i < 9; i++) {
-        gTranslate(0, 2, 0);
-        drawSeaweed();
-    }
-
-    gPop();
-}
-
 // function drawStrand() {
 //     gPush();
 
 //     gScale(0.1, 0.25, 0.10);
 //     drawSeaweed();
-//     gTranslate(0, 2, 0);
-//     gRotate(45, 0, 0, 1);
-//     drawSeaweed();
-//     gTranslate(0, 2, 0);
-//     gRotate(45, 0, 0, 1);
-//     drawSeaweed();
-//     gRotate(45, 0, 0, 1);
-
-//     // for (var i = 0; i < 9; i++) {
-//     //     gTranslate(0, 2, 0);
-//     //     drawSeaweed();
-//     // }
+//     for (var i = 0; i < 9; i++) {
+//         gTranslate(0, 2, 0);
+//         drawSeaweed();
+//     }
 
 //     gPop();
 // }
 
+
+function drawStrand() {
+    gPush();
+
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+    gTranslate(0, 0.25, 0);
+    gRotate(10 * Math.cos(TIME), 0, 0, 1);
+    gTranslate(0, 0.25, 0);
+
+    gPush();
+    gScale(0.1, 0.25, 0.10);
+    drawSeaweed();
+    gPop();
+
+
+    // gTranslate(0, 2, 0);
+    // gRotate(TIME, 0, 0, 1);
+    // drawSeaweed();
+    // gTranslate(0, 2, 0);
+    // gRotate(45, 0, 0, 1);
+    // drawSeaweed();
+    // gRotate(45, 0, 0, 1);
+
+
+
+    gPop();
+}
 
 
 function drawHuman() {
@@ -482,35 +489,33 @@ function drawHuman() {
     draw_Left_Leg();
     draw_Right_Leg();
     gPop();
-    }
+}
 
-    function draw_Human_Head(){
-        gPush();
-        gScale(2, 3, 3);
-        gTranslate(0, 0, 0);
-        setColor(vec4(0, 0, 0, 1.0));
-        drawSphere();
-        gPop();
-    }
+function draw_Human_Head() {
+    gPush();
+    gScale(2, 3, 3);
+    gTranslate(0, 0, 0);
+    setColor(vec4(0, 0, 0, 1.0));
+    drawSphere();
+    gPop();
+}
 
-    function draw_Human_body(){
-        //work in progress
-    }
-    function draw_Left_Leg()
-    {
-        //work in progress
-    }
-    function draw_Right_Leg()
-    {
-        //work in progress
-    }
+function draw_Human_body() {
+    //work in progress
+}
+function draw_Left_Leg() {
+    //work in progress
+}
+function draw_Right_Leg() {
+    //work in progress
+}
 
 function drawFish() {
-        gPush();
-        drawHead();
-        drawBody();
-        gPop();
-    }
+    gPush();
+    drawHead();
+    drawBody();
+    gPop();
+}
 
 function drawHead() {
     gTranslate(0, -3, 2);
@@ -525,39 +530,39 @@ function drawHead() {
 function drawLeftEye() {
     gPush();
     gTranslate(-0.5, 0.4, 0);
-    gScale(0.15, 0.15, 0.15);    
+    gScale(0.15, 0.15, 0.15);
     setColor(vec4(1, 1, 1, 1.0));
     drawSphere();
     drawLeftCornea();
     gPop();
- }
- function drawRightEye() {
+}
+function drawRightEye() {
     gPush();
     gTranslate(0.48, 0.4, 0);
-    gScale(0.15, 0.15, 0.15);    
+    gScale(0.15, 0.15, 0.15);
     setColor(vec4(1, 1, 1, 1.0));
     drawSphere();
     drawRightCornea();
     gPop();
- }
+}
 
- function drawLeftCornea() {
-      gPush();
-      gTranslate(0, 0.04, 0.70);
-      gScale(0.7, 0.7, 0.7);    
-      setColor(vec4(0, 0, 0, 1.0));
-      drawSphere();
-      gPop();
-   }
-
-   function drawRightCornea() {
+function drawLeftCornea() {
     gPush();
-    gTranslate(0.0, 0.04, 0.70);
-    gScale(0.7, 0.7, 0.7);    
+    gTranslate(0, 0.04, 0.70);
+    gScale(0.7, 0.7, 0.7);
     setColor(vec4(0, 0, 0, 1.0));
     drawSphere();
     gPop();
-   }
+}
+
+function drawRightCornea() {
+    gPush();
+    gTranslate(0.0, 0.04, 0.70);
+    gScale(0.7, 0.7, 0.7);
+    setColor(vec4(0, 0, 0, 1.0));
+    drawSphere();
+    gPop();
+}
 
 function drawBody() {
     gPush();
@@ -567,12 +572,12 @@ function drawBody() {
     setColor(vec4(0.6, 0.0, 0.0, 1.0));
     drawCone();
     drawTail();
-    drawTail2(); 
+    drawTail2();
     gPop();
 }
 
 function drawTail() {
-   // gPush();
+    // gPush();
     gTranslate(-0.11, 0.60, 0.75);
     gRotate(-95, 1, 1, 1);
     gScale(0.10, 0.12, 1.40);
