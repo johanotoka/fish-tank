@@ -274,7 +274,6 @@ function render() {
         // Draw the big rock
         gTranslate(0.0, -3.5, 0.0);
         gScale(0.5, 0.5, 0.5);
-        // gRotate(TIME * 180 / 3.14159, 0, 1, 0);
         setColor(vec4(0.4, 0.4, 0.4, 1.0));
         drawSphere();
     }
@@ -283,7 +282,6 @@ function render() {
         // Draw the small rock
         gTranslate(-1.5, -0.5, 0);
         gScale(0.5, 0.5, 0.5);
-        // gRotate(TIME * 180 / 3.14159, 0, 1, 0);
         setColor(vec4(0.4, 0.4, 0.4, 1.0));
         drawSphere();
     }
@@ -298,13 +296,13 @@ function render() {
         drawStrand();
         gPop();
 
-        // // Strand 2
+        // Strand 2
         gPush();
         gTranslate(0.0, -2.75, -1);
         drawStrand();
         gPop();
 
-        // // Strand 3
+        // Strand 3
         gPush();
         gTranslate(0.5, -3.25, -1);
         drawStrand();
@@ -315,10 +313,6 @@ function render() {
     // Draw the fish
     gPush();
     {
-        // gTranslate(0.5, -3.0, 0.0);
-        // gRotate(-75, 0, 1, 0);
-        // gScale(0.5, 0.5, 0.5);
-
         drawFish();
     }
     gPop();
@@ -328,42 +322,6 @@ function render() {
         // drawHuman();
     }
     gPop();
-
-    // gTranslate(-4, 0, 0);
-    // gPush();
-    // {
-    //     gRotate(TIME * 180 / 3.14159, 0, 1, 0);
-    //     setColor(vec4(1.0, 0.0, 0.0, 1.0));
-    //     drawSphere();
-    // }
-    // gPop();
-
-    // gPush();
-    // {
-    //     gTranslate(3, 0, 0);
-    //     setColor(vec4(0.0, 1.0, 0.0, 1.0));
-    //     gRotate(TIME * 180 / 3.14159, 0, 1, 0);
-    //     drawCube();
-    // }
-    // gPop();
-
-    // gPush();
-    // {
-    //     gTranslate(5, 0, 0);
-    //     setColor(vec4(0.0, 0.0, 1.0, 1.0));
-    //     gRotate(TIME * 180 / 3.14159, 0, 1, 0);
-    //     drawCylinder();
-    // }
-    // gPop();
-
-    // gPush();
-    // {
-    //     gTranslate(7, 0, 0);
-    //     setColor(vec4(1.0, 1.0, 0.0, 1.0));
-    //     gRotate(TIME * 180 / 3.14159, 0, 1, 0);
-    //     drawCone();
-    // }
-    // gPop();
 
     if (animFlag)
         window.requestAnimFrame(render);
@@ -430,14 +388,21 @@ function CameraController(element) {
 }
 
 
-// HELPER FUNCTIONS
+////////////////////// HELPER FUNCTIONS //////////////////////
 
+/**
+ * Draws a seaweed leaf.
+ */
 function drawSeaweed() {
     // gScale(0.15, 0.35, 0.15);
     setColor(vec4(0.0, 0.6, 0.0, 1.0));
     drawSphere();
 }
 
+
+/**
+ * Draws a strand of seaweed with 10 leaves.
+ */
 function drawStrand() {
     gPush();
 
@@ -534,7 +499,9 @@ function drawStrand() {
     gPop();
 }
 
-
+/**
+ * Draws a human character with a head, body, and legs.
+ */
 function drawHuman() {
     gPush();
     draw_Human_Head();
@@ -544,6 +511,9 @@ function drawHuman() {
     gPop();
 }
 
+/**
+ * Drwas a human head.
+ */
 function draw_Human_Head() {
     gPush();
     gScale(2, 3, 3);
@@ -553,16 +523,30 @@ function draw_Human_Head() {
     gPop();
 }
 
+/**
+ * Draws a human body.
+ */
 function draw_Human_body() {
     //work in progress
 }
+
+/**
+ * Drwas a human left leg.
+ */
 function draw_Left_Leg() {
     //work in progress
 }
+
+/**
+ * Draws a human right leg.
+ */
 function draw_Right_Leg() {
     //work in progress
 }
 
+/**
+ * Draws a fish with a head, body, and tail.
+ */
 function drawFish() {
     gPush();
     gRotate(-30 * TIME, 0, 1, 0);
@@ -571,7 +555,10 @@ function drawFish() {
     drawBody();
     gPop();
 }
-//work in progress 
+
+/**
+ * Draws a fish head.
+ */
 function drawHead() {
     gTranslate(0, -2.5, 2);
     gScale(0.5, 0.5, 0.5);
@@ -582,6 +569,9 @@ function drawHead() {
     drawRightEye();
 }
 
+/**
+ * Draws a fish left eye.
+ */
 function drawLeftEye() {
     gPush();
     gTranslate(-0.5, 0.4, 0);
@@ -591,6 +581,10 @@ function drawLeftEye() {
     drawLeftCornea();
     gPop();
 }
+
+/**
+ * Draws a fish right eye.
+ */
 function drawRightEye() {
     gPush();
     gTranslate(0.48, 0.4, 0);
@@ -601,6 +595,9 @@ function drawRightEye() {
     gPop();
 }
 
+/**
+ * Draws a fish left cornea.
+ */
 function drawLeftCornea() {
     gPush();
     gTranslate(0, 0.04, 0.70);
@@ -610,6 +607,9 @@ function drawLeftCornea() {
     gPop();
 }
 
+/**
+ * Draws a fish right cornea.
+ */
 function drawRightCornea() {
     gPush();
     gTranslate(0.0, 0.04, 0.70);
@@ -619,6 +619,9 @@ function drawRightCornea() {
     gPop();
 }
 
+/**
+ * Draws a fish body.
+ */
 function drawBody() {
     gPush();
     gTranslate(0.0, 0.0, -2.5);
@@ -629,12 +632,15 @@ function drawBody() {
     drawCone();
     gPop();
     gRotate(15 * Math.sin(6 * TIME), 0, 1, 0);
-    drawTail();
-    drawTail2();
+    drawTailUpper();
+    drawTailLower();
     gPop();
 }
 
-function drawTail() {
+/**
+ * Draws a fish upper part of the tail.
+ */
+function drawTailUpper() {
     gPush();
     gTranslate(0, 0.9, 2.5);
     gRotate(-45, 1, 0, 0);
@@ -644,7 +650,10 @@ function drawTail() {
     gPop();
 }
 
-function drawTail2() {
+/**
+ * Draws a fish lower part of the tail.
+ */
+function drawTailLower() {
     gPush();
     gTranslate(0, -0.4, 2.3);
     gRotate(45, 1, 0, 0);
@@ -653,7 +662,4 @@ function drawTail2() {
     drawCone();
     gPop();
 }
-
-
-
 
