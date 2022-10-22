@@ -571,7 +571,7 @@ function drawFish() {
     drawBody();
     gPop();
 }
-
+//work in progress 
 function drawHead() {
     gTranslate(0, -2.5, 2);
     gScale(0.5, 0.5, 0.5);
@@ -623,19 +623,22 @@ function drawBody() {
     gPush();
     gTranslate(0.0, 0.0, -2.5);
     gRotate(180, 0, 1, 0);
+    gPush();
     gScale(1.0, 1.0, 4.0);
     setColor(vec4(0.6, 0.0, 0.0, 1.0));
     drawCone();
+    gPop();
+    gRotate(15 * Math.sin(6 * TIME), 0, 1, 0);
     drawTail();
     drawTail2();
     gPop();
 }
 
 function drawTail() {
-    // gPush();
-    gTranslate(-0.11, 0.60, 0.75);
-    gRotate(-95, 1, 1, 1);
-    gScale(0.10, 0.12, 1.40);
+    gPush();
+    gTranslate(0, 0.9, 2.5);
+    gRotate(-45, 1, 0, 0);
+    gScale(0.4, 0.4, 2.0);
     setColor(vec4(0.6, 0.0, 0.0, 1.0));
     drawCone();
     gPop();
@@ -643,9 +646,9 @@ function drawTail() {
 
 function drawTail2() {
     gPush();
-    gScale(0.1, 1.3, 0.4);
-    gTranslate(0, -0.4, -12);
-    gRotate(97, 1, 0, 0);
+    gTranslate(0, -0.4, 2.3);
+    gRotate(45, 1, 0, 0);
+    gScale(0.3, 0.3, 1.0);
     setColor(vec4(0.6, 0.0, 0.0, 1.0));
     drawCone();
     gPop();
