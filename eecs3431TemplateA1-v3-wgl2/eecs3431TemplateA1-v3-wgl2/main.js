@@ -499,10 +499,15 @@ function drawStrand() {
  */
 function drawHuman() {
     gPush();
+    gRotate(-25, 0, 1, 0);
     draw_Human_Head();
     draw_Human_body();
     draw_Left_Leg();
+    draw_lowerleft_leg();
     draw_Right_Leg();
+    draw_lowerright_Leg();
+    draw_left_foot();
+    draw_right_foot();
     gPop();
 }
 
@@ -510,37 +515,105 @@ function drawHuman() {
  * Drwas a human head.
  */
 function draw_Human_Head() {
-    
+
     gScale(0.3, 0.3, 0.3);
     gTranslate(11.4, 4, -5);
-    setColor(vec4(0.6, 0.2, 0.8, 1.0));
-    drawSphere();     
+    setColor(vec4(0.6, 0.1, 0.8, 1.0));
+     gTranslate(1 * Math.cos(0.4*TIME), 1.5 * Math.cos(0.4*TIME), -2 * Math.cos(0.4*TIME));
+   
+    drawSphere();  
 }
 
 /**
  * Draws a human body.
  */
 function draw_Human_body() {
-    gScale(2, 3, 0.3);
+    gScale(2, 3, 0.2);
     gTranslate(0, -1.32, 0);
-    gRotate(-15, 0, 1, 0);
     setColor(vec4(0.4, 0.15, 0.6, 1));
+    gRotate(-15, 0, 1, 0);
     drawCube(); 
 }
 
 /**
  * Drwas a human left leg.
  */
+
 function draw_Left_Leg() {
     //work in progress
+ 
+    gTranslate(-0.35, -1.6, 0);
+    gScale(0.25, 0.7, 0.35);
+    gRotate(20, 1, 0, 0);
+    
+    setColor(vec4(0.4, 0.15, 0.6, 0));
+   
+    gRotate(-15 * Math.cos(0.8*TIME), 1, 0, 0);
+    
+    drawCube();
+    
+   
 }
+
+//draws human's lower left leg
+function draw_lowerleft_leg(){
+    // work in progress 
+   
+    gTranslate(0, -1.2, -1.4);
+    gRotate(-13, 0.5, 0, 0);
+    gScale(0.85, 0.3, 2.5);
+    setColor(vec4(0.4, 0.15, 0.6, 1));
+    drawCube();
+       
+ }    
 
 /**
  * Draws a human right leg.
  */
-function draw_Right_Leg() {
+ function draw_Right_Leg() {
     //work in progress
+    
+    gTranslate(5, 3.3, 1);
+   gScale(1.2, 3.8, 0.5);
+   setColor(vec4(0.4, 0.15, 0.6, 0));
+    gRotate(18 * Math.cos(0.8*TIME), 1, 0, 0); // animaiton is not as smooth. need to play with the axis.
+    drawCube();
 }
+
+// draws human lower right leg
+function draw_lowerright_Leg(){
+    gTranslate(0, -1, -3);
+    gScale(1.0, 0.2, 2.4);
+    gRotate(-70, 0, 0, 1);
+
+    setColor(vec4(0.4, 0.15, 0.6, 0));
+
+    gRotate(18 * Math.cos(0.8*TIME), 1, 0, 0);
+    drawCube();
+  
+}
+// draws human left foot
+function draw_left_foot(){
+    //work in progress
+    gPush();
+   
+        gTranslate(6, -8, 0.75);
+        gScale(2.0, 1, 0.2);
+      gRotate(1 * Math.cos(0.8*TIME), 1, 0, 0); //this not working objecgt is following the body trasition animation instead of following this
+        drawCube();
+    gPop();
+    }
+
+//draws human right foot
+function draw_right_foot(){
+ gTranslate(1.8, 0, -1.3);
+gScale(2.0, 1, 0.2);
+gRotate(5, 0, 0, 1);
+gRotate(1 * Math.cos(0.8*TIME), 1, 0, 0);
+drawCube();
+}
+
+
 
 /**
  * Draws a fish with a head, body, and tail.
