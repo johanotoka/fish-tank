@@ -722,9 +722,6 @@ function draw_right_foot(){
 ////////////////bubbles/////////
 
 function drawbubbles(){
- //   gTranslate(0, -0, 2);
-    
-    
     gScale(0.5, 0.5, 0.5);
     setColor(vec4(1, 1, 1, 1));
     drawSphere();   
@@ -733,7 +730,8 @@ function bubble()
 {
     for (let i = 0; i < 5; i++)
     {
-        gTranslate(0, TIME, 3 * Math.sin(TIME));
+        gTranslate(0, TIME, 5 * Math.sin(0.5*TIME));
         drawbubbles();
     }
 }
+
