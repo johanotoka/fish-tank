@@ -722,15 +722,21 @@ function draw_right_foot(){
 ////////////////bubbles/////////
 
 function drawbubbles(){
-    gScale(0.5, 0.5, 0.5);
+
+    gPush();
+    
     setColor(vec4(1, 1, 1, 1));
-    drawSphere();   
+    gScale(0.5, 0.5, 0.5);
+    drawSphere();
+    gPop();   
+    
 }
+
 function bubble()
 {
     for (let i = 0; i < 5; i++)
-    {
-        gTranslate(0, TIME, 5 * Math.sin(0.5*TIME));
+    {   
+        gTranslate(0, TIME, 2 * Math.sin(0.5*TIME));
         drawbubbles();
     }
 }
