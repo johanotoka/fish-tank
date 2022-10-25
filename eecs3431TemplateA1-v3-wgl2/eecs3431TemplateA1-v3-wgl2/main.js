@@ -315,7 +315,6 @@ function render() {
     {
         drawFish();
         drawHuman();
-        drawbubbles();
         bubble();
     }
     gPop();
@@ -722,21 +721,21 @@ function draw_right_foot(){
 ////////////////bubbles/////////
 
 function drawbubbles(){
-
-    gPush();
     
-    setColor(vec4(1, 1, 1, 1));
-    gScale(0.5, 0.5, 0.5);
+    gTranslate(0, TIME,  2 * Math.sin(0.5*TIME));
+  ///  gScale(1 * Math.cos(0.2*TIME)/2, -1* Math.cos(0.3*TIME)/2, 0);
     drawSphere();
-    gPop();   
-    
 }
 
 function bubble()
 {
-    for (let i = 0; i < 5; i++)
+    gPush();  
+    setColor(vec4(1, 1, 1, 1));
+    gScale(0.5, 0.5, 0.5);
+    gPop(); 
+  
+    for (let i = 0; i < 4; i++)
     {   
-        gTranslate(0, TIME, 2 * Math.sin(0.5*TIME));
         drawbubbles();
     }
 }
