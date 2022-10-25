@@ -721,11 +721,12 @@ function draw_right_foot(){
 ////////////////bubbles/////////
 
 function drawbubbles(){
-    
-    gTranslate(0, TIME,  2 * Math.sin(0.5*TIME));
-  ///  gScale(1 * Math.cos(0.2*TIME)/2, -1* Math.cos(0.3*TIME)/2, 0);
-    drawSphere();
+   // gScale(1 * Math.cos(0.2*TIME+2), -1* Math.cos(0.3*TIME+2), 0);
+   gTranslate(0, TIME,  2 * Math.sin(0.5*TIME));
+   drawSphere();
 }
+    
+    
 
 function bubble()
 {
@@ -735,7 +736,7 @@ function bubble()
     gPop(); 
   
     for (let i = 0; i < 4; i++)
-    {   
+    {  
         drawbubbles();
     }
 }
