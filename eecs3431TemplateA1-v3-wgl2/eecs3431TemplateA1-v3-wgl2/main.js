@@ -314,8 +314,12 @@ function render() {
     gPush();
     {
         drawFish();
+    }
+    gPop();
+
+    gPush();
+    {
         drawHuman();
-        bubble();
     }
     gPop();
 
@@ -390,7 +394,6 @@ function CameraController(element) {
  * Draws a seaweed leaf.
  */
 function drawSeaweed() {
-    // gScale(0.15, 0.35, 0.15);
     setColor(vec4(0.0, 0.6, 0.0, 1.0));
     drawSphere();
 }
@@ -494,10 +497,6 @@ function drawStrand() {
 
     gPop();
 }
-
-/**
- * Draws a human character with a head, body, and legs.
- */
 
 ////////////////////////////FISH//////////////////////////////////////////////
 /**
@@ -619,17 +618,22 @@ function drawTailLower() {
     gPop();
 }
 
+/**
+ * Draws a human character with a head, body, and legs.
+ */
+
 function drawHuman() {
     gPush();
-    gRotate(-25, 0, 1, 0);
+    gTranslate(0.9 * Math.cos(0.4 * TIME), 0.5 * Math.cos(0.4 * TIME), -2 * Math.cos(0.4 * TIME));
+    gTranslate(3.3, 1, 0);
     draw_Human_Head();
+    gPush();
+    bubble();
+    gPop();
+    gTranslate(0, -1.1, 0);
     draw_Human_body();
     draw_Left_Leg();
-    draw_lowerleft_leg();
     draw_Right_Leg();
-    draw_lowerright_Leg();
-    draw_left_foot();
-    draw_right_foot();
     gPop();
 }
 
@@ -637,12 +641,11 @@ function drawHuman() {
  * Drwas a human head.
  */
 function draw_Human_Head() {
-  //  gPush();
+    gPush();
     gScale(0.3, 0.3, 0.3);
-    gTranslate(11.4, 4, -5);
     setColor(vec4(0.6, 0.1, 0.8, 1.0));
-     gTranslate(1 * Math.cos(0.4*TIME), 1.5 * Math.cos(0.4*TIME), -2 * Math.cos(0.4*TIME)); 
-     drawSphere();  
+    drawSphere();
+    gPop();
 }
 
 /**
@@ -650,11 +653,11 @@ function draw_Human_Head() {
  */
 function draw_Human_body() {
     gPush();
-    gScale(2, 3, 0.2);
-    gTranslate(0, -1.32, 0);
+    gScale(0.5, 0.8, 0.2);
     setColor(vec4(0.4, 0.15, 0.6, 1));
     gRotate(-15, 0, 1, 0);
-    drawCube(); 
+    drawCube();
+    gPop();
 }
 
 /**
@@ -662,81 +665,105 @@ function draw_Human_body() {
  */
 
 function draw_Left_Leg() {
-    
-    gTranslate(-0.35, -1.6, 0);
-    gScale(0.25, 0.7, 0.35);
-    gRotate(20, 1, 0, 0);
+    gPush();
+    gTranslate(-0.4, -0.3, 0);
+    gRotate(45, 0, 1, 0);
+    gRotate(25, 0, 0, 1);
+    gRotate(20 * Math.cos(0.8 * TIME), 0, 0, 1);
+    gTranslate(0, -1, 0);
+    gPush();
     setColor(vec4(0.4, 0.15, 0.6, 0));
-    gRotate(-15 * Math.cos(0.8*TIME), 1, 0, 0);
+    gScale(0.15, 0.5, 0.15);
     drawCube();
+    gPop();
+    draw_lowerleft_leg();
+    gPop();
 }
 
 //draws human's lower left leg
-function draw_lowerleft_leg(){
-    gTranslate(0, -1.2, -1.4);
-    gRotate(-13, 0.5, 0, 0);
-    gScale(0.85, 0.3, 2.5);
+function draw_lowerleft_leg() {
+    gTranslate(0, -0.4, 0);
+    gRotate(20, 0, 0, 1);
+    gRotate(15 * Math.cos(0.8 * TIME), 0, 0, 1);
+    gTranslate(0, -0.5, 0);
+    gPush();
+    gScale(0.15, 0.5, 0.15);
     setColor(vec4(0.4, 0.15, 0.6, 1));
     drawCube();
-    } 
+    gPop();
+    draw_left_foot();
+}
 
 // // draws human left foot
-function draw_left_foot(){
-    // //work in progress
+function draw_left_foot() {
+    //work in progress
+    gTranslate(-0.2, -0.5, 0);
     gPush();
-     gTranslate(-6, -5.2, 0);
-    gScale(1, 1.9, 0.2);
+    gScale(0.4, 0.1, 0.15);
     drawCube();
     gPop();
-    }
+}
 
 /**
  * Draws a human right leg.
  */
- function draw_Right_Leg() {
-      gTranslate(5, 3.3, 1);
-      gScale(1.2, 3.8, 0.5);
-      setColor(vec4(0.4, 0.15, 0.6, 0));
-      gRotate(18 * Math.cos(0.8*TIME), 1, 0, 0); // animaiton is not as smooth. need to play with the axis.
-      drawCube();
+function draw_Right_Leg() {
+    gPush();
+    gTranslate(0.3, -0.3, 0);
+    gRotate(45, 0, 1, 0);
+    gRotate(25, 0, 0, 1);
+    gRotate(20 * Math.sin(0.8 * TIME), 0, 0, 1);
+    gTranslate(0, -1, 0);
+    gPush();
+    setColor(vec4(0.4, 0.15, 0.6, 0));
+    gScale(0.15, 0.5, 0.15);
+    drawCube();
+    gPop();
+    draw_lowerright_Leg();
+    gPop();
+
 }
 
 // draws human lower right leg
-function draw_lowerright_Leg(){
-    gTranslate(0, -1, -3);
-    gScale(1.0, 0.2, 2.4);
-    setColor(vec4(0.4, 0.15, 0.6, 0));
-    gRotate(18 * Math.cos(0.8*TIME), 1, 0, 0);
+function draw_lowerright_Leg() {
+    gTranslate(0, -0.4, 0);
+    gRotate(20, 0, 0, 1);
+    gRotate(15 * Math.cos(0.8 * TIME), 0, 0, 1);
+    gTranslate(0, -0.5, 0);
+    gPush();
+    gScale(0.15, 0.5, 0.15);
+    setColor(vec4(0.4, 0.15, 0.6, 1));
     drawCube();
-  
+    gPop();
+    draw_right_foot();
 }
 
 //draws human right foot
-function draw_right_foot(){
-    gTranslate(0, -0.9, -1.3);
-    gScale(1, 1.9, 0.2);
+function draw_right_foot() {
+    gTranslate(-0.2, -0.5, 0);
+    gPush();
+    gScale(0.4, 0.1, 0.15);
     drawCube();
+    gPop();
 }
 
 ////////////////bubbles/////////
 
-function drawbubbles(){
-   // gScale(1 * Math.cos(0.2*TIME+2), -1* Math.cos(0.3*TIME+2), 0);
-   gTranslate(0, TIME,  2 * Math.sin(0.5*TIME));
-   drawSphere();
-}
-    
-    
-
-function bubble()
-{
-    gPush();  
+function drawbubbles() {
+    gTranslate(0, 0.1 * TIME, 0);
+    gPush();
     setColor(vec4(1, 1, 1, 1));
-    gScale(0.5, 0.5, 0.5);
-    gPop(); 
-  
-    for (let i = 0; i < 4; i++)
-    {  
+    gScale(0.1, 0.1, 0.1);
+    drawSphere();
+    gPop();
+}
+
+
+
+function bubble() {
+
+
+    for (let i = 0; i < 4; i++) {
         drawbubbles();
     }
 }
