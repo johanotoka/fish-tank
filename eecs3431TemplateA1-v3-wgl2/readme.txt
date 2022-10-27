@@ -1,5 +1,3 @@
-Requierements:
-
 (a) We successfully used real time to synchronize the animations.
 (b) We successfully placed the ground box.
 (c) We successfully placed the 2 rocks (spheres).
@@ -10,12 +8,12 @@ Requierements:
 (h) We successfully animated the fish. The fish moves up and down in circle with his tail moving side to side.
 (i) We successfully implemented burst of bubbles in the beggining of the animation. Although, Bubbles do not appear in every fewseconds. 
 (j) We successfully positioned each bubble appear near the mouth of the character.
-(k) 
-(l)
-(m)
+(k) We couldn't get the shape of the bubble oscillate with time.
+(l) We successfully animated each bubble move straight up with time.   
+(m) We couldn't get to remove the bubble after 12 seconds.
 (n) We successfully implemented a human character with no arm.
 (o) We successfully animated the human move in x and y coordinates. 
-(p) We successfully animated the hips and legs kick in opposite directions. The right foot has no movement of itself but follows the directions of right leg, but the left foot doesn't follow the leg movement, it follows the body movement.
+(p) We successfully animated the hips and legs kick in opposite directions and the feet has no movement.
 (q) We successfully implemented a qualitatively and visually similar animation compared to the sample.
 (r) We successfully commented our code and implemented helper functions.
 (s) We successfully set the screen size to be 512x512.
